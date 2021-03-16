@@ -8,7 +8,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import phonebookReducer from './phonebook/phonebook-reducer';
-import logger from 'redux-logger';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -16,7 +15,6 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  logger,
 ];
 
 const store = configureStore({

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { form, button, form_input } from './ContactForm.module.css';
 import { connect } from 'react-redux';
-import phonebookActions from '../../redux/phonebook/phonebook-actions';
+import { contactsOperations, contactsSelectors } from '../../redux/phonebook';
 
 class ContactForm extends Component {
   state = {
@@ -58,12 +58,12 @@ class ContactForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  onSubmit: text => dispatch(phonebookActions.addContact(text)),
-});
+const mapDispatchToProps = {
+  onSubmit: contactsOperations.addContact,
+};
 
 const mapStateToProps = state => ({
-  contacts: state.contacts.items,
+  contacts: contactsSelectors.getAllContacts(state),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

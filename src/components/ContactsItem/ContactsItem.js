@@ -1,8 +1,7 @@
 import React from 'react';
 import { delete_button } from './ContactsItem.module.css';
 import { connect } from 'react-redux';
-import phonebookActions from '../../redux/phonebook/phonebook-actions';
-
+import { contactsOperations } from '../../redux/phonebook';
 const ContactsItem = ({ filtered, onDelete }) => {
   return filtered.map(({ name, number, id }) => {
     return (
@@ -20,8 +19,8 @@ const ContactsItem = ({ filtered, onDelete }) => {
   });
 };
 
-const mapDispatchToProps = dispatch => ({
-  onDelete: id => dispatch(phonebookActions.deleteContact(id)),
-});
+const mapDispatchToProps = {
+  onDelete: contactsOperations.deleteContact,
+};
 
 export default connect(null, mapDispatchToProps)(ContactsItem);
