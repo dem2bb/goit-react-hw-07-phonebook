@@ -5,6 +5,12 @@ import ContactsItem from '../../components/ContactsItem/ContactsItem';
 import Filter from '../../components/Filter/Filter';
 import { connect } from 'react-redux';
 import { contactsSelectors, contactsOperations } from '../../redux/phonebook';
+import {
+  container,
+  formTitle,
+  contactsCont,
+  contactsList,
+} from './Contacts.module.css';
 
 class Contacts extends Component {
   componentDidMount() {
@@ -14,21 +20,21 @@ class Contacts extends Component {
   render() {
     const { isLoadingContacts, isContactIncludes, error } = this.props;
     return (
-      <div className="container">
-        <h2>Phonebook</h2>
+      <div className={container}>
+        <h2 className={formTitle}>Phonebook</h2>
         <ContactForm />
         {error && <p className="error-message">{error}</p>}
         {isLoadingContacts && (
           <Loader type="ThreeDots" color="grey" height={100} width={100} />
         )}
         {isContactIncludes && (
-          <>
-            <h2>Contacts</h2>
+          <div className={contactsCont}>
+            <h2 className={formTitle}>Contacts</h2>
             <Filter />
-            <ul className="contacts">
+            <ul className={contactsList}>
               <ContactsItem filtered={this.props.contacts} />
             </ul>
-          </>
+          </div>
         )}
       </div>
     );

@@ -19,31 +19,3 @@ code {
   padding: 0;
   box-sizing: border-box;
 }
-
-.container {
-  margin: 20px;
-  width: 500px;
-}
-
-.contacts {
-  margin-top: 30px;
-  border: 1px solid grey;
-  border-radius: 5px;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.contacts li {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 5px;
-  margin-right: 30px;
-}
-
-.error-message {
-  text-align: center;
-}

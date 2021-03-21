@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { form, button, form_input } from './ContactForm.module.css';
+import { form, button, form_input, inputTitle } from './ContactForm.module.css';
 import { connect } from 'react-redux';
 import { contactsOperations, contactsSelectors } from '../../redux/phonebook';
 
@@ -34,7 +34,7 @@ class ContactForm extends Component {
   render() {
     return (
       <form className={form} onSubmit={this.onHandleSubmit}>
-        <h4>Name</h4>
+        <h4 className={inputTitle}>Name</h4>
         <input
           className={form_input}
           type="text"
@@ -42,7 +42,7 @@ class ContactForm extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         ></input>
-        <h4>Number</h4>
+        <h4 className={inputTitle}>Number</h4>
         <input
           className={form_input}
           type="number"

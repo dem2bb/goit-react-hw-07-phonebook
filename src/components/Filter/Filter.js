@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changeFilter } from '../../redux/phonebook/phonebook-actions';
 import { contactsSelectors } from '../../redux/phonebook';
-
+import { inputForm } from './Filter.module.css';
 const Filter = ({ value, onChange }) => {
   return (
     <>
@@ -12,6 +12,7 @@ const Filter = ({ value, onChange }) => {
         name="filter"
         value={value}
         onChange={onChange}
+        className={inputForm}
       ></input>
     </>
   );
